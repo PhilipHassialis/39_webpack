@@ -13,10 +13,23 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    "style-loader", // 3 inject styles in DOM
-                    "css-loader", // 2 turn css into JS
-                    "sass-loader" // 1 turn sass into css
+                    "style-loader", //3. Inject styles into DOM
+                    "css-loader", //2. Turns css into commonjs
+                    "sass-loader" //1. Turns sass into css
                 ]
+            },
+            {
+                test: /\.html$/,
+                use: { loader: "html-loader" }
+            },
+            {
+                test: /\.(svg|png|jpg|gif)$/,
+
+                loader: "file-loader",
+                options: {
+                    name: "[name].[hash].[ext]",
+                    outputPath: "imgs"
+                }
             }
         ]
     }
